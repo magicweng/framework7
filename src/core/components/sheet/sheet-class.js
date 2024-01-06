@@ -669,8 +669,9 @@ class Sheet extends Modal {
         $(document).on('keydown', onKeyDown);
       }
       $el.prevAll('.popup.modal-in').addClass('popup-behind');
-
-      app.on('resize', onResize);
+      if (sheet.params.swipeToStep || useBreakpoints) {
+        app.on('resize', onResize);
+      }
       if (sheet.params.scrollToEl) {
         scrollToElementOnOpen();
       }
